@@ -7,6 +7,15 @@
     return array;
 }
 
+double [] CreateArrayD (int n){ // n - size;  x - min element; y - max+1 element
+    double [] array = new double [n];
+    for (int i = 0; i < array.Length; i++)
+    {
+        array [i] = Convert.ToDouble(new Random().Next(-100, 100)/10.0);
+    }
+    return array;
+}
+
 void PrintArray (int[] ar){
     for (int i = 0; i < ar.Length; i++)
     {
@@ -15,8 +24,16 @@ void PrintArray (int[] ar){
     Console.WriteLine();
 }
 
-int MaxElementArray (int[] ar){
-    int max = ar[0];
+void PrintArrayD (double[] ar){
+    for (int i = 0; i < ar.Length; i++)
+    {
+        Console.Write($"{ar[i]} ");
+    }
+    Console.WriteLine();
+}
+
+double MaxElementArray (double[] ar){
+    double max = ar[0];
     for (int i = 0; i < ar.Length; i++)
     {
         if (max < ar[i]){
@@ -26,8 +43,8 @@ int MaxElementArray (int[] ar){
     return max;
 }
 
-int MinElementArray (int[] ar){
-    int min = ar[0];
+double MinElementArray (double[] ar){
+    double min = ar[0];
     for (int i = 0; i < ar.Length; i++)
     {
         if (min > ar[i]){
@@ -91,10 +108,10 @@ Console.WriteLine();
 [3 7 22 2 78] -> 76*/
 
 Console.WriteLine("задача 38");
-int [] array38 = CreateArray(20, 0, 100);
-PrintArray(array38);
-int max = MaxElementArray(array38);
-int min = MinElementArray(array38);
+double [] array38 = CreateArrayD(20);
+PrintArrayD(array38);
+double max = MaxElementArray(array38);
+double min = MinElementArray(array38);
 Console.WriteLine($"max = {max}");
 Console.WriteLine($"min = {min}");
 Console.WriteLine($"Разницу между максимальным и минимальным элементов массива = {max - min}");
